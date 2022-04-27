@@ -4,13 +4,7 @@ const app = express()
 app.get('/', function (req, res){
     res.sendFile(path.join(__dirname, '../public/index.html'))
 })
-app.get('/css', function (req, res){
-    res.sendFile(path.join(__dirname, '../public/style.css'))
-})
-app.get('/js', function (req, res){
-    res.sendFile(path.join(__dirname, '../public/index.js'))
-})
-
+app.use(express.static('public'))
 const port  = process.env.PORT || 4005
 app.listen(port, function(){
 console.log(`Listening on da port that is ${port}`)
